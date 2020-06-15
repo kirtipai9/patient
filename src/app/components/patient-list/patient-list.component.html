@@ -1,0 +1,101 @@
+<p>patient-list works!</p>
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+         [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchName()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>patients List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let patient of patients; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActivepatient(patient, i)"
+      >
+        {{ patient.name }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllpatients()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentpatient">
+      <h4>Patient</h4>
+      <div>
+        <label><strong>name:</strong></label> {{ currentpatient.name }}
+      </div>
+      <div>
+        <label><strong>address:</strong></label>
+        {{ currentpatient.address }}
+      </div>
+      <div>
+        <label><strong>city:</strong></label>
+        {{ currentpatient.city }}
+      </div>
+      <div>
+        <label><strong>state:</strong></label>
+        {{ currentpatient.state }}
+      </div>
+      <div>
+        <label><strong>pincode:</strong></label>
+        {{ currentpatient.pincode }}
+      </div>
+      <div>
+        <label><strong>phone:</strong></label>
+        {{ currentpatient.phone }}
+      </div>
+      <div>
+        <label><strong>email:</strong></label>
+        {{ currentpatient.email }}
+      </div>
+      <div>
+        <label><strong>local:</strong></label>
+        {{ currentpatient.local }}
+      </div>
+      <div>
+        <label><strong>opbal:</strong></label>
+        {{ currentpatient.opbal }}
+
+      </div>
+      <div>
+        <label><strong>clbal:</strong></label>
+        {{ currentpatient.clbal }}
+      </div>
+      <div>
+        <label><strong>typeid:</strong></label>
+        {{ currentpatient.typeid }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentpatient.published ? "Published" : "Pending" }}
+      </div>
+
+      <a class="badge badge-warning" href="/patients/{{ currentpatient.id }}">
+        Edit
+      </a>
+    </div>
+
+    <div *ngIf="!currentpatient">
+      <br />
+      <p>Please click on a Patients...</p>
+    </div>
+  </div>
+</div>

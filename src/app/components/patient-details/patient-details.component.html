@@ -1,0 +1,171 @@
+
+<div *ngIf="currentpatient" class="edit-form">
+  <h4>Patient</h4>
+  <form>
+    <div class="form-group">
+      <label for="name">name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="currentpatient.name"
+        name="name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="address">address</label>
+      <input
+      type="text"
+        class="form-control"
+        id="address"
+        required
+        [(ngModel)]="currentpatient.address"
+        name="address"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="city">city</label>
+      <input
+      type="text"
+        class="form-control"
+        id="city"
+        required
+        [(ngModel)]="currentpatient.city"
+        name="city"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="state">state</label>
+      <input
+      type="text"
+        class="form-control"
+        id="state"
+        required
+        [(ngModel)]="currentpatient.state"
+        name="state"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="pincode">pincode</label>
+      <input
+      type="number"
+        class="form-control"
+        id="pincode"
+        required
+        [(ngModel)]="currentpatient.pincode"
+        name="pincode"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">phone</label>
+      <input
+      type="number"
+        class="form-control"
+        id="phone"
+        required
+        [(ngModel)]="currentpatient.phone"
+        name="phone"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">email</label>
+      <input
+      type="email"
+        class="form-control"
+        id="email"
+        required
+        [(ngModel)]="currentpatient.email"
+        name="email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="local">local</label>
+      <input
+      type="text"
+        class="form-control"
+        id="local"
+        required
+        [(ngModel)]="currentpatient.local"
+        name="local"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="opbal">opbal</label>
+      <input
+      type="number"
+        class="form-control"
+        id="opbal"
+        required
+        [(ngModel)]="currentpatient.opbal"
+        name="opbal"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="clbal">clbal</label>
+      <input
+      type="number"
+        class="form-control"
+        id="clbal"
+        required
+        [(ngModel)]="currentpatient.clbal"
+        name="clbal"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="typeid">typeid</label>
+      <input
+      type="number"
+        class="form-control"
+        id="typeid"
+        required
+        [(ngModel)]="currentpatient.typeid"
+        name="typeid"
+      />
+    </div>
+
+    <div class="form-group">
+      <label><strong>Status:</strong></label>
+      {{ currentpatient.published ? "Published" : "Pending" }}
+    </div>
+  </form>
+
+  <button
+    class="badge badge-primary mr-2"
+    *ngIf="currentpatient.published"
+    (click)="updatePublished(false)"
+  >
+    UnPublish
+  </button>
+  <button
+    *ngIf="!currentpatient.published"
+    class="badge badge-primary mr-2"
+    (click)="updatePublished(true)"
+  >
+    Publish
+  </button>
+
+  <button class="badge badge-danger mr-2" (click)="deletepatient()">
+    Delete
+  </button>
+
+  <button type="submit" class="badge badge-success" (click)="updatepatient()">
+    Update
+  </button>
+  <p>{{ message }}</p>
+ </div>
+
+<div *ngIf="!currentpatient">
+  <br />
+  <p>Cannot access this patient...</p>
+</div>

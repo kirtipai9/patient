@@ -1,0 +1,142 @@
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+      <label for="name">name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="patient.name"
+        name="name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="address">address</label>
+      <input
+      type="text"
+        class="form-control"
+        id="address"
+        required
+        [(ngModel)]="patient.address"
+        name="address"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="city">city</label>
+      <input
+      type="text"
+        class="form-control"
+        id="city"
+        required
+        [(ngModel)]="patient.city"
+        name="city"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="state">state</label>
+      <input
+      type="text"
+        class="form-control"
+        id="state"
+        required
+        [(ngModel)]="patient.state"
+        name="state"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="pincode">pincode</label>
+      <input
+      type="number"
+        class="form-control"
+        id="pincode"
+        required
+        [(ngModel)]="patient.pincode"
+        name="pincode"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">phone</label>
+      <input
+      type="number"
+        class="form-control"
+        id="phone"
+        required
+        [(ngModel)]="patient.phone"
+        name="phone"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">email</label>
+      <input
+      type="email"
+        class="form-control"
+        id="email"
+        required
+        [(ngModel)]="patient.email"
+        name="email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="local">local</label>
+      <input
+      type="text"
+        class="form-control"
+        id="local"
+        required
+        [(ngModel)]="patient.local"
+        name="local"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="opbal">opbal</label>
+      <input
+      type="number"
+        class="form-control"
+        id="opbal"
+        required
+        [(ngModel)]="patient.opbal"
+        name="opbal"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="clbal">clbal</label>
+      <input
+      type="number"
+        class="form-control"
+        id="clbal"
+        required
+        [(ngModel)]="patient.clbal"
+        name="clbal"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="typeid">typeid</label>
+      <input
+      type="number"
+        class="form-control"
+        id="typeid"
+        required
+        [(ngModel)]="patient.typeid"
+        name="typeid"
+      />
+    </div>
+    <button (click)="savePatient()" class="btn btn-success">Submit</button>
+  </div>
+
+  <div *ngIf="submitted">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newPatient()">Add</button>
+  </div>
+</div>
+List of patients Component
